@@ -1,7 +1,7 @@
 import './css/styles.css';
 import { fetchCountries } from './fetchCountries.js';
 import debounce from 'lodash.debounce';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { Notify } from 'notiflix'
 
 
 const DEBOUNCE_DELAY = 300;
@@ -47,16 +47,14 @@ const makeCountryList = country => {
             c => `<li><img src="${c.flags.svg}" alt="flag" width = "45" height = "30">${c.name.official}</li>`
         )
         .join("");
-        countryList.innerHTML = countryListHTML
-        countryInfo.innerHTML = ''
-    }       
+    countryList.innerHTML = countryListHTML
+    countryInfo.innerHTML = ''
+}
 
 
 const makeCountryInfo = country => {
-   const { flags, name, capital, population, languages } = country
-    const languageName = languages
-    .map(l => l.name)
-    .join(', ')
+    const { flags, name, capital, population, languages } = country
+    const languageName = Object.values(languages).join(',');
 
     const countryInfoHTML = `<img src="${flags.svg}" alt="flag" width = "90" height = "60">
     <h1>${name.official}</h1>

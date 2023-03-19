@@ -44,7 +44,7 @@ searchBox.addEventListener('input', debounce(searchChange, DEBOUNCE_DELAY));
 const makeCountryList = country => {
     const countryListHTML = country
         .map(
-            c => `<li><img src="${c.flags.svg}" alt="flag" width = "45, height = "30">${c.name.official}</li>`
+            c => `<li><img src="${c.flags.svg}" alt="flag" width = "45" height = "30">${c.name.official}</li>`
         )
         .join("");
         countryList.innerHTML = countryListHTML
@@ -58,7 +58,7 @@ const makeCountryInfo = country => {
     .map(l => l.name)
     .join(', ')
 
-    const countryInfoHTML = `<img src="${flags.svg}" alt="flag" width = "90", height = "60">
+    const countryInfoHTML = `<img src="${flags.svg}" alt="flag" width = "90" height = "60">
     <h1>${name.official}</h1>
     <p>Capital: ${capital}</p>
     <p>Population: ${population}</p>
